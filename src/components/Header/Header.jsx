@@ -1,15 +1,21 @@
 import React from 'react'
-import Button from '../Button/Button'
+
 import './Header.css'
 import { useTelegram } from '../../hooks/useTelegram'
+import { Link } from 'react-router-dom'
 const Header = () => {
   const { user, onClose } = useTelegram()
 
   return (
     <div className={'header'}>
-      <Button className="" onClick={onClose}>
-        Закрити
-      </Button>
+      <>
+        <Link className="link" to={'/form'}>
+          Main
+        </Link>
+        <Link className="link" to={'/'}>
+          Form
+        </Link>
+      </>
       <span className={'username'}>{user?.username}</span>
     </div>
   )

@@ -9,3 +9,12 @@
 .username {
   margin-left: auto;
 }
+
+.link {
+  padding: 5px;
+  text-decoration: none;
+  color: teal;
+}
+link:hover {
+  background-color: gray;
+}
