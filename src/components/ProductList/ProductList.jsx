@@ -78,7 +78,29 @@ const getTotalPrice = (items) => {
 
 const ProductList = () => {
   const [shopList, setShopList] = useState([])
-  const { tg } = useTelegram()
+  const { tg, queryId } = useTelegram()
+
+  const onSendData = useCallback(() => {
+    const data = {
+      products: shopList,
+      totalPrice: getTotalPrice(shopList),
+      queryId,
+    }
+    fetch('https://tgshop.up.railway.app:8000/web-data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+  }, [])
+
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData)
+    return () => {
+      tg.onEvent('mainButtonClicked', onSendData)
+    }
+  }, [onSendData])
 
   const onAdd = (product) => {
     const alreadyAdded = shopList.find((item) => item.id === product.id)
