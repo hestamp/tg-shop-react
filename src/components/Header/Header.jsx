@@ -9,10 +9,10 @@ const Header = () => {
   return (
     <div className={'header'}>
       <>
-        <Link className="link" to={'/form'}>
+        <Link className="link" to={'/'}>
           Main
         </Link>
-        <Link className="link" to={'/'}>
+        <Link className="link" to={'/form'}>
           Form
         </Link>
       </>
