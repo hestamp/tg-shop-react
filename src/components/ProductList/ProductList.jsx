@@ -77,7 +77,7 @@ const getTotalPrice = (items) => {
 }
 
 const ProductList = () => {
-  const [shopList, setShopList] = useState([3])
+  const [shopList, setShopList] = useState([])
   const { tg, queryId } = useTelegram()
 
   const onSendData = useCallback(() => {
