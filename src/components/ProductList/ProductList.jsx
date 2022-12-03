@@ -86,7 +86,7 @@ const ProductList = () => {
       totalPrice: getTotalPrice(shopList),
       queryId,
     }
-    fetch('https://tgshop.up.railway.app:8000/web-data', {
+    fetch('https://tgshop.up.railway.app/web-data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
