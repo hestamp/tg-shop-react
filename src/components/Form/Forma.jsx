@@ -8,6 +8,22 @@ const Forma = () => {
   const [poshta, setPoshta] = useState('nova')
   const { tg } = useTelegram()
 
+  const onSendData = useCallback(() => {
+    const data = {
+      city,
+      street,
+      subject,
+    }
+    tg.sendData(JSON.stringify(data))
+  }, [])
+
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData)
+    return () => {
+      tg.onEvent('mainButtonClicked', onSendData)
+    }
+  })
+
   useEffect(() => {
     tg.MainButton.setParams({
       text: 'Надіслати',
