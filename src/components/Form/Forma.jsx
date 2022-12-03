@@ -12,7 +12,7 @@ const Forma = () => {
     const data = {
       city,
       street,
-      subject,
+      poshta,
     }
     tg.sendData(JSON.stringify(data))
   }, [])
