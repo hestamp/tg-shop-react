@@ -15,7 +15,7 @@ const Forma = () => {
       poshta,
     }
     tg.sendData(JSON.stringify(data))
-  }, [])
+  }, [city, street, poshta])
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData)
@@ -52,7 +52,7 @@ const Forma = () => {
       <h3>Введіть ваші дані</h3>
       <input
         value={city}
-        onChange={onChangeCity}
+        onChange={(e) => setCity(e.target.value)}
         className={'input'}
         type="text"
         placeholder="Місто"
