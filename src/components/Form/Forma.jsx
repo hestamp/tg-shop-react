@@ -19,7 +19,7 @@ const Forma = () => {
     } else {
       tg.MainButton.show()
     }
-  }, [country, city])
+  }, [street, city])
 
   const onChangeCity = (e) => {
     setCity(e.target.value)
